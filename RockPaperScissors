@@ -1,0 +1,119 @@
+
+import random as r
+
+
+#Valid Move-Options for Player & Computer
+player_moves = ["Rock", "Paper", "Scissors"]
+bot_moves = ["Rock", "Paper", "Scissors"]
+
+#input for player
+move_input = input("Please choose a valid move: ")
+player_ = move_input
+
+#bot move
+bot_move = r.choice(bot_moves)
+bot_ = bot_move
+
+#checks if the input is valid (player)
+def input_checker():
+    if player_moves.__contains__(move_input):
+        print(" I choose... " + bot_move + "!")
+    elif not player_moves.__contains__(move_input):
+        print("Please choose a valid move!")
+
+
+bot_role = bot_move
+player_role = move_input
+
+
+
+
+
+def bot_count_function():
+    if bot_role == "Rock":
+        bot_count = 1
+        return bot_count
+    elif bot_role == "Paper":
+        bot_count = 3
+        return bot_count
+    elif bot_role == "Scissors":
+        bot_count = 6
+        return bot_count
+
+
+
+
+
+
+
+bot_count_function()
+def player_count_function():
+    if player_role == "Rock":
+        player_count = 1
+        return player_count
+    elif player_role == "Paper":
+        player_count = 3
+        return player_count
+    elif player_role == "Scissors":
+        player_count = 6
+        return player_count
+
+player_count_function()
+def game_points_function():
+  game_points = player_count_function() + bot_count_function()
+  return game_points
+
+real_player_count = player_count_function()
+real_bot_count = bot_count_function()
+
+def draw_check():
+    if bot_move == move_input:
+        print("Its a draw![" + bot_move + "|" + move_input + "]")
+    else:
+     return
+
+
+  #Value list (notice)
+       #1r, 3p , 6s = (2), 4, (6), 7, 9, (12)
+
+def value_four():
+        if real_bot_count == 1:
+             print("The player has won the game![Paper|Rock]")
+        elif real_bot_count == 3:
+             print("The computer has won the game![Rock|Paper]")
+        else:
+            return
+
+def value_seven():
+       if real_bot_count == 6:
+           print("The player has won the game![Rock|Scissors]")
+       elif real_bot_count == 1:
+           print("The computer has won the game![Scissors|Rock]")
+       else:
+           return
+
+def value_nine():
+       if real_bot_count == 3:
+         print("The player has won the game![Scissors|Paper]")
+       elif real_bot_count == 6:
+           print("The computer has won the game![Paper|Scissors]")
+       else:
+           return
+
+
+def game_summary_function():
+ if game_points_function() == 4:
+    value_four()
+ elif game_points_function() == 7:
+    value_seven()
+ elif game_points_function() == 9:
+    value_nine()
+
+#Driver Code
+input_checker()
+draw_check()
+bot_count_function()
+player_count_function()
+
+
+game_summary_function()
